@@ -10,7 +10,7 @@ import { startAddBrand } from '../../store/slices/brand/thunks';
 const AddBrandScreen = () => {
     const dispatch = useAppDispatch();
     const [image, setImage] = useState<File | null>(null);
-    const { values, handleInputChange } = useForm<AddBrand>({
+    const { values, handleInputChange, reset } = useForm<AddBrand>({
         name: '',
         image: null,
     });
@@ -33,7 +33,7 @@ const AddBrandScreen = () => {
         const newBrand = new FormData();
         newBrand.append('image', image);
         newBrand.append('name', values.name);
-        dispatch(startAddBrand(newBrand));
+        dispatch(startAddBrand(newBrand, reset, setImage));
     };
 
     return (

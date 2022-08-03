@@ -98,7 +98,11 @@ export const searchProducts = (search: string): AppThunk => {
     };
 };
 
-export const startAddProduct = (product: any): AppThunk => {
+export const startAddProduct = (
+    product: any,
+    reset: Function,
+    setImage: Function
+): AppThunk => {
     return async (dispatch, getState) => {
         try {
             const token = localStorage.getItem('token');
@@ -116,6 +120,8 @@ export const startAddProduct = (product: any): AppThunk => {
                 );
 
                 dispatch(addProduct(data.product));
+                setImage(null);
+                reset();
             }
         } catch (error) {
             if (axios.isAxiosError(error)) {

@@ -43,6 +43,7 @@ export const productSlice = createSlice({
         },
         addProduct: (state, action: PayloadAction<Product>) => {
             state.errorMessage = '';
+            state.isLoading = false;
             state.products = [...state.products, action.payload];
         },
         updateProduct: (state, action: PayloadAction<Product>) => {

@@ -14,7 +14,11 @@ const ProductCard = ({ name, price, image_url, id }: Product) => {
                     style={{ width: '18rem', textDecoration: 'none' }}
                     className="mb-2 "
                 >
-                    <Card.Img variant="top" src={image_url} />
+                    <Card.Img
+                        variant="top"
+                        src={image_url}
+                        className="overflow-hidden"
+                    />
                     <Card.Body>
                         <Card.Title className="text-center">{name}</Card.Title>
                         <Card.Subtitle className="text-center">

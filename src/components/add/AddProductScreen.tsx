@@ -17,7 +17,8 @@ const initialState = {
 
 const AddProductScreen = () => {
     const [image, setImage] = useState<File | null>(null);
-    const { values, handleInputChange } = useForm<AddProduct>(initialState);
+    const { values, handleInputChange, reset } =
+        useForm<AddProduct>(initialState);
 
     const dispatch = useAppDispatch();
 
@@ -44,7 +45,7 @@ const AddProductScreen = () => {
         newProduct.append('price', values.price);
         newProduct.append('BrandId', values.BrandId);
 
-        dispatch(startAddProduct(newProduct));
+        dispatch(startAddProduct(newProduct, reset, setImage));
     };
 
     return (

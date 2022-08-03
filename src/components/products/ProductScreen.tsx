@@ -180,6 +180,14 @@ const ProductScreen = () => {
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Price</Form.Label>
+                                    <Form.Control
+                                        type="number"
+                                        placeholder="Select an image"
+                                        name="price"
+                                        onChange={handleInputFileChange}
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
                                     <Form.Label>Add image</Form.Label>
                                     <Form.Control
                                         type="file"

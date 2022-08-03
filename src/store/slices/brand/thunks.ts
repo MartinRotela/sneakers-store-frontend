@@ -77,7 +77,11 @@ export const startDeletingBrand = (brand: string): AppThunk => {
     };
 };
 
-export const startAddBrand = (brand: any): AppThunk => {
+export const startAddBrand = (
+    brand: any,
+    reset: Function,
+    setImage: Function
+): AppThunk => {
     return async (dispatch, getState) => {
         try {
             const token = localStorage.getItem('token');
@@ -92,6 +96,8 @@ export const startAddBrand = (brand: any): AppThunk => {
                 });
 
                 dispatch(addBrand(data.brand));
+                reset();
+                setImage(null);
             }
         } catch (error) {
             if (axios.isAxiosError(error)) {
